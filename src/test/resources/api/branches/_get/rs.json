@@ -1,6 +1,6 @@
 [
   {
-    "name": "feature",
+    "name": "${name}",
     "commit": {
       "sha": "53c8253272bee583db17e7f19a2c7930e9429225",
       "url": "https://api.github.com/repos/jorjo991/university/commits/53c8253272bee583db17e7f19a2c7930e9429225"

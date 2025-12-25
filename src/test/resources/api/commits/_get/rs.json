@@ -4,8 +4,8 @@
     "node_id": "C_kwDOPsrPTtoAKGM0ZTBlMzlmYjcxZWZiOWY2MDUyYTE5ZjhkOTllNzNhMDFlOGQyNWE",
     "commit": {
       "author": {
-        "name": "jorjo991",
-        "email": "127973407+jorjo991@users.noreply.github.com",
+        "name": "${author_name}",
+        "email": "${author_email}",
         "date": "2025-12-16T20:22:31Z"
       },
       "committer": {

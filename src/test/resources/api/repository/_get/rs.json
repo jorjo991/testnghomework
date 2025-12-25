@@ -1,8 +1,8 @@
 {
   "id": 1053478734,
   "node_id": "R_kgDOPsrPTg",
-  "name": "university",
-  "full_name": "jorjo991/university",
+  "name": "${name}",
+  "full_name": "${fullname}",
   "private": false,
   "owner": {
     "login": "jorjo991",

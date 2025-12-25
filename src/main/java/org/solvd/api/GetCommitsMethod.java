@@ -18,6 +18,7 @@ public class GetCommitsMethod extends AbstractApiMethodV2 {
         replaceUrlPlaceholder("baseUrl", Configuration.getRequired("api_url"));
         replaceUrlPlaceholder("owner", "jorjo991");
         replaceUrlPlaceholder("repos", "university");
+        setProperties("api/commits/commits.properties");
     }
 
 }

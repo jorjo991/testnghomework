@@ -14,8 +14,12 @@ import com.zebrunner.carina.utils.config.Configuration;
 public class GetWorkFlowsMethod extends AbstractApiMethodV2 {
 
     public GetWorkFlowsMethod() {
+
         replaceUrlPlaceholder("baseUrl", Configuration.getRequired("api_url"));
         replaceUrlPlaceholder("owner", "jorjo991");
         replaceUrlPlaceholder("repos", "university");
+        setProperties("api/workflows/workflows.properties");
+
     }
+
 }

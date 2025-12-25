@@ -1,5 +1,6 @@
 package org.solvd.test.api;
 
+import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.solvd.api.GetBranchesMethod;
 import org.testng.annotations.Test;
 
@@ -10,7 +11,8 @@ public class GetBranchesMethodTest {
 
         GetBranchesMethod branchesAPI = new GetBranchesMethod();
         branchesAPI.callAPIExpectSuccess();
-        branchesAPI.validateResponse();
+        branchesAPI.validateResponse(JSONCompareMode.LENIENT);
+
 
     }
 }

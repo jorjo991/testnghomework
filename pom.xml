@@ -1,109 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.solvd</groupId>
     <artifactId>testNg</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- ================================================= -->
+    <!-- PROPERTIES                                       -->
+    <!-- ================================================= -->
     <properties>
+        <!-- Java -->
         <maven.compiler.source>24</maven.compiler.source>
         <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <carina-core_version>1.1.3</carina-core_version>
-        <carina-dataprovider.version>1.1.3</carina-dataprovider.version>
-        <carina-api.version>1.1.3</carina-api.version>
-        <carina-aws-s3.version>1.1.4</carina-aws-s3.version>
-        <carina-azure.version>1.1.4</carina-azure.version>
-        <carina-appcenter.version>1.1.4</carina-appcenter.version>
-        <java.version>11</java.version>
-        <zebrunner-agent.version>1.9.6</zebrunner-agent.version>
+
+        <!-- Carina -->
+        <carina.version>1.1.4</carina.version>
+
+        <!-- Selenium -->
+        <selenium.version>4.25.0</selenium.version>
+
+        <!-- TestNG -->
+        <testng.version>7.11.0</testng.version>
     </properties>
 
+    <!-- ================================================= -->
+    <!-- FORCE SELENIUM VERSION (CRITICAL)                -->
+    <!-- ================================================= -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-bom</artifactId>
+                <version>${selenium.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
+    <!-- ================================================= -->
+    <!-- DEPENDENCIES                                     -->
+    <!-- ================================================= -->
     <dependencies>
+
+        <!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.11.0</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Selenium (version controlled by BOM) -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+        </dependency>
+
+        <!-- ================= Carina ================= -->
         <dependency>
             <groupId>com.zebrunner</groupId>
             <artifactId>carina-core</artifactId>
-            <version>${carina-core_version}</version>
+            <version>${carina.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.zebrunner</groupId>
-            <artifactId>carina-dataprovider</artifactId>
-            <version>${carina-dataprovider.version}</version>
-        </dependency>
+
 
         <dependency>
             <groupId>com.zebrunner</groupId>
             <artifactId>carina-api</artifactId>
-            <version>${carina-api.version}</version>
+            <version>1.1.3</version>
         </dependency>
 
         <dependency>
             <groupId>com.zebrunner</groupId>
             <artifactId>carina-aws-s3</artifactId>
-            <version>${carina-aws-s3.version}</version>
+            <version>${carina.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.zebrunner</groupId>
             <artifactId>carina-azure</artifactId>
-            <version>${carina-azure.version}</version>
+            <version>${carina.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.zebrunner</groupId>
             <artifactId>carina-appcenter</artifactId>
-            <version>${carina-appcenter.version}</version>
+            <version>${carina.version}</version>
         </dependency>
 
+        <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.30</version>
         </dependency>
-        <!-- Log4j2 -->
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.17.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.17.1</version>
         </dependency>
 
-        <dependency>
-            <!--we need it to reuse benefits of zebrunner testng agent for webdriver
-                sesssion(s) declaration -->
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
-            <version>1.12.18</version>
-        </dependency>
+        <!-- Optional utilities -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.6</version>
         </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.5.3</version>
         </dependency>
+
     </dependencies>
 
+    <!-- ================================================= -->
+    <!-- BUILD                                            -->
+    <!-- ================================================= -->
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -115,6 +147,7 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

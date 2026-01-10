@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class ProductPage extends AbstractPage {
 
-    @FindBy(css="body")
+    @FindBy(css = "body")
     ExtendedWebElement productBody;
 
     protected ProductPage(WebDriver driver) {
@@ -20,10 +20,10 @@ public class ProductPage extends AbstractPage {
         return new TopHeader(driver, productBody.getElement());
     }
 
-    public  ProductPage chooseProduct(String productName){
+    public ProductPage chooseProduct(String productName) {
 
         productBody.assertElementPresent();
-        ExtendedWebElement productLink= productBody.findExtendedWebElement(By.xpath("//a[.//h3[text()='"+productName+"']]"));
+        ExtendedWebElement productLink = productBody.findExtendedWebElement(By.xpath("//a[.//h3[text()='" + productName + "']]"));
         productLink.scrollTo();
         productLink.click();
         return new ProductPage(getDriver());
@@ -38,6 +38,5 @@ public class ProductPage extends AbstractPage {
         CommonUtils.pause(2);
         return new CartPage(driver);
     }
-
 
 }

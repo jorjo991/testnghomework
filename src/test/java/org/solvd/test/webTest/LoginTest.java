@@ -12,21 +12,23 @@ public class LoginTest {
     WebDriver webDriver;
 
     @BeforeTest
-    public  void  setUp(){
+    public void setUp() {
         webDriver = new ChromeDriver();
-         webDriver.manage().window().maximize();
-         webDriver.get("https://sauce-demo.myshopify.com/account/login");
+        webDriver.manage().window().maximize();
+        webDriver.get("https://sauce-demo.myshopify.com/account/login");
     }
-    @AfterTest
-    public void settleDown(){
-       // webDriver.quit();
-    }
-    @Test
-    public  void TestLogin(){
 
-        WebElement customerEmail=webDriver.findElement(By.id("customer_email"));
+    @AfterTest
+    public void settleDown() {
+        // webDriver.quit();
+    }
+
+    @Test
+    public void TestLogin() {
+
+        WebElement customerEmail = webDriver.findElement(By.id("customer_email"));
         customerEmail.sendKeys("g.ugulava12@gmail.com");
-        WebElement customerPassword=webDriver.findElement(By.id("customer_password"));
+        WebElement customerPassword = webDriver.findElement(By.id("customer_password"));
         customerPassword.sendKeys("kaikaci1234");
         webDriver.findElement(By.xpath("//input[@value='Sign In']")).click();
 

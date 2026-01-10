@@ -15,7 +15,7 @@ public class CartPage extends AbstractPage {
     @FindBy(xpath = "//textarea[@id='note']")
     ExtendedWebElement noteField;
 
-    @FindBy(xpath="//input[@id='update']")
+    @FindBy(xpath = "//input[@id='update']")
     ExtendedWebElement updateCartButton;
 
     protected CartPage(WebDriver driver) {
@@ -35,6 +35,7 @@ public class CartPage extends AbstractPage {
         CommonUtils.pause(2);
         return this;
     }
+
     public CartPage removeProduct() {
         ExtendedWebElement removeButton = cartBody.findExtendedWebElement(By.xpath("//a[text()='x']"));
         removeButton.assertElementPresent();
@@ -48,17 +49,18 @@ public class CartPage extends AbstractPage {
         return !findExtendedWebElements(By.xpath("//a[contains(normalize-space(.),'" + productName + "')]")).
                 isEmpty();
     }
-    public CartPage addNote(String note){
-       noteField.assertElementPresent();
-       noteField.scrollTo();
-       noteField.type(note);
-       updateCartButton.click();
-       CommonUtils.pause(2);
-       return  this;
+
+    public CartPage addNote(String note) {
+        noteField.assertElementPresent();
+        noteField.scrollTo();
+        noteField.type(note);
+        updateCartButton.click();
+        CommonUtils.pause(2);
+        return this;
     }
 
-    public boolean isNoteAdded(String note){
-        ExtendedWebElement addedNote= cartBody.findExtendedWebElement(By.xpath("//textarea[@id='note' and normalize-space(text())='"+note+"']"));
+    public boolean isNoteAdded(String note) {
+        ExtendedWebElement addedNote = cartBody.findExtendedWebElement(By.xpath("//textarea[@id='note' and normalize-space(text())='" + note + "']"));
         return addedNote.isElementPresent();
     }
 }

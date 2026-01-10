@@ -12,7 +12,8 @@ import org.testng.annotations.Test;
 public class AddNoteToProduct extends AbstractTest {
 
     @Test
-    public void  addNoteToProductTest() {
+    public void addNoteToProductTest() {
+
         getDriver().manage().window().maximize();
         HomePage homePage = new HomePage(getDriver());
         homePage.openHomePage();

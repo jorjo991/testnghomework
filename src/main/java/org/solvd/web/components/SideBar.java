@@ -11,7 +11,8 @@ public class SideBar extends AbstractUIObject {
     @FindBy(xpath = "//a[contains(normalize-space(.),'Catalog')]")
     private ExtendedWebElement catalogLink;
     @FindBy(xpath = "//a[contains(normalize-space(.),'Home')]")
-    private  ExtendedWebElement homeLink;
+    private ExtendedWebElement homeLink;
+
     protected SideBar(WebDriver driver) {
         super(driver);
     }
@@ -20,11 +21,12 @@ public class SideBar extends AbstractUIObject {
         super(driver, searchContext);
     }
 
-    public  void clickCatalog(){
+    public void clickCatalog() {
         catalogLink.assertElementPresent();
         catalogLink.click();
     }
-    public  void clickHome(){
+
+    public void clickHome() {
         homeLink.assertElementPresent();
         homeLink.click();
     }

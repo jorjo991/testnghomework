@@ -7,27 +7,27 @@ import org.openqa.selenium.support.FindBy;
 
 public class CatalogPage extends AbstractPage {
 
-    @FindBy(css="body")
+    @FindBy(css = "body")
     ExtendedWebElement catalogPageBody;
 
     protected CatalogPage(WebDriver driver) {
         super(driver);
     }
 
-    public boolean isCatalogPageBodyPresent(){
+    public boolean isCatalogPageBodyPresent() {
         return catalogPageBody.isElementPresent();
     }
 
-    public SideBar sideBar(){
-        return  new SideBar(driver, catalogPageBody.getElement());
+    public SideBar sideBar() {
+        return new SideBar(driver, catalogPageBody.getElement());
     }
 
-    public TopHeader topHeader(){
-        return  new TopHeader(driver, catalogPageBody.getElement());
+    public TopHeader topHeader() {
+        return new TopHeader(driver, catalogPageBody.getElement());
     }
 
-    public ProductPage goToproductPage(){
-        ExtendedWebElement productLink= catalogPageBody.findExtendedWebElement(org.openqa.selenium.By.xpath("//a[text()='Products']"));
+    public ProductPage goToproductPage() {
+        ExtendedWebElement productLink = catalogPageBody.findExtendedWebElement(org.openqa.selenium.By.xpath("//a[text()='Products']"));
         productLink.assertElementPresent();
         productLink.click();
         return new ProductPage(driver);
